@@ -830,12 +830,10 @@ Partial Class Form1
         'Number_ID21
         '
         Me.Number_ID21.Location = New System.Drawing.Point(49, 29)
-        Me.Number_ID21.Maximum = New Decimal(New Integer() {3, 0, 0, 0})
-        Me.Number_ID21.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.Number_ID21.Maximum = New Decimal(New Integer() {2, 0, 0, 0})
         Me.Number_ID21.Name = "Number_ID21"
         Me.Number_ID21.Size = New System.Drawing.Size(42, 20)
         Me.Number_ID21.TabIndex = 3
-        Me.Number_ID21.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'Label34
         '
