@@ -123,7 +123,9 @@
   <data name="CheckBox_ID06.ToolTip" xml:space="preserve">
     <value>Sets something to 0x14F80 (85888 in decimal)
 
-Note: can be related to 0x23 config setting where applied value is 0x14E00, and to 0x4A where value is 0x15100 probably using both or more of this config settings in one time is bad idea.
+Note: can be related to 0x23 config setting where applied value is 0x14E00, 
+and to 0x4A where value is 0x15100 probably using both,
+ or more of this config settings in one time is bad idea.
 
 </value>
   </data>
@@ -136,7 +138,9 @@ Note: can be related to 0x23 config setting where applied value is 0x14E00, and 
   <data name="CheckBox_ID4A.ToolTip" xml:space="preserve">
     <value>Sets something to 0x15100 (86272 in decimal)
 
-Note: can be related to 0x06 config setting where applied value is 0x14F80, and to 0x23 where value is 0x14E00 probably using both or more of this config settings in one time is bad idea.
+Note: can be related to 0x06 config setting where applied value is 0x14F80, 
+and to 0x23 where value is 0x14E00 probably using both, 
+or more of this config settings in one time is bad idea.
 </value>
   </data>
   <metadata name="ToolTip49.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -198,7 +202,9 @@ Note: When checked then it skip something unknown (can be something related to c
   <data name="CheckBox_ID23.ToolTip" xml:space="preserve">
     <value>memcpy 0x100 Bytes and sets 0x14E00 (85504 in decimal)
 
-Note: can be related to 0x06 config setting where applied value is 0x14F80, and to 0x4A where value is 0x15100 probably using both or more of this config settings in one time is bad idea.
+Note: can be related to 0x06 config setting where applied value is 0x14F80, 
+and to 0x4A where value is 0x15100 probably using both,
+ or more of this config settings in one time is bad idea.
 </value>
   </data>
   <metadata name="ToolTip22.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -219,6 +225,21 @@ Note: can be related to 0x06 config setting where applied value is 0x14F80, and 
   <metadata name="test.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="GameID_TIP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>181, 54</value>
+  </metadata>
+  <data name="Label72.ToolTip" xml:space="preserve">
+    <value>Type here Game ID for game that config will be used in format XXXX-YYYYY . 
+For example NTSC-U version of game "Bully" is SLUS-21269 
+
+Note: If you are not sure what to write here, just type 0000-00000</value>
+  </data>
+  <data name="Param_Simple_ID00.ToolTip" xml:space="preserve">
+    <value>Type here Game ID for game that config will be used in format XXXX-YYYYY . 
+For example NTSC-U version of game "Bully" is SLUS-21269 
+
+Note: If you are not sure what to write here, just type 0000-00000 </value>
+  </data>
   <metadata name="DataGridViewTextBoxColumn3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

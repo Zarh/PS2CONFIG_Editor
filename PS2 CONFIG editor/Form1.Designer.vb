@@ -306,6 +306,7 @@ Partial Class Form1
         Me.ToolTip4A = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolTip50 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.GameID_TIP = New System.Windows.Forms.ToolTip(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.Tab_Simple.SuspendLayout()
         Me.Tab_Advanced.SuspendLayout()
@@ -723,6 +724,7 @@ Partial Class Form1
         Me.Label72.Size = New System.Drawing.Size(63, 17)
         Me.Label72.TabIndex = 1
         Me.Label72.Text = "Game ID"
+        Me.GameID_TIP.SetToolTip(Me.Label72, resources.GetString("Label72.ToolTip"))
         '
         'Param_Simple_ID00
         '
@@ -731,6 +733,7 @@ Partial Class Form1
         Me.Param_Simple_ID00.Name = "Param_Simple_ID00"
         Me.Param_Simple_ID00.Size = New System.Drawing.Size(132, 22)
         Me.Param_Simple_ID00.TabIndex = 0
+        Me.GameID_TIP.SetToolTip(Me.Param_Simple_ID00, resources.GetString("Param_Simple_ID00.ToolTip"))
         '
         'Tab_Advanced
         '
@@ -3786,4 +3789,5 @@ Partial Class Form1
     Friend WithEvents ToolTip35 As ToolTip
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents GameID_TIP As ToolTip
 End Class
