@@ -305,7 +305,6 @@ Partial Class Form1
         Me.ToolTip49 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolTip4A = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolTip50 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.GameID_TIP = New System.Windows.Forms.ToolTip(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.Tab_Simple.SuspendLayout()
@@ -3322,10 +3321,6 @@ Partial Class Form1
         Me.Label48.TabIndex = 2
         Me.Label48.Text = "Nothing to do"
         '
-        'SaveFileDialog1
-        '
-        Me.SaveFileDialog1.DefaultExt = "ISO.CONFIG"
-        '
         'Form1
         '
         Me.AllowDrop = True
@@ -3788,6 +3783,5 @@ Partial Class Form1
     Friend WithEvents ToolTip3E As ToolTip
     Friend WithEvents ToolTip35 As ToolTip
     Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents GameID_TIP As ToolTip
 End Class
