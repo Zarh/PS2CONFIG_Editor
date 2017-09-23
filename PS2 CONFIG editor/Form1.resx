@@ -117,6 +117,131 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="ToolTip06.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>99, 17</value>
+  </metadata>
+  <data name="CheckBox_ID06.ToolTip" xml:space="preserve">
+    <value>Sets something to 0x14F80 (85888 in decimal)
+
+Note: can be related to 0x23 config setting where applied value is 0x14E00, 
+and to 0x4A where value is 0x15100 probably using both,
+ or more of this config settings in one time is bad idea.
+
+</value>
+  </data>
+  <metadata name="ToolTip50.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 54</value>
+  </metadata>
+  <metadata name="ToolTip4A.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 54</value>
+  </metadata>
+  <data name="CheckBox_ID4A.ToolTip" xml:space="preserve">
+    <value>Sets something to 0x15100 (86272 in decimal)
+
+Note: can be related to 0x06 config setting where applied value is 0x14F80, 
+and to 0x23 where value is 0x14E00 probably using both, 
+or more of this config settings in one time is bad idea.
+</value>
+  </data>
+  <metadata name="ToolTip49.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 54</value>
+  </metadata>
+  <metadata name="ToolTip47.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 54</value>
+  </metadata>
+  <metadata name="ToolTip46.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1002, 60</value>
+  </metadata>
+  <metadata name="ToolTip45.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>878, 60</value>
+  </metadata>
+  <metadata name="ToolTip44.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>754, 60</value>
+  </metadata>
+  <metadata name="ToolTip41.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>630, 60</value>
+  </metadata>
+  <metadata name="ToolTip40.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>390, 60</value>
+  </metadata>
+  <data name="CheckBox_ID40.ToolTip" xml:space="preserve">
+    <value>Sets something unknown to 1
+
+Originally used in:
+- Grand Theft Auto SA
+
+Unofficial fix for:
+Silent Hill Origins - fixes white overblending at burning house
+Ghost Rider - texture fix: white overblending in-game
+Fahrenheit - fixes freeze after Lucas' apartment</value>
+  </data>
+  <metadata name="ToolTip3E.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>266, 60</value>
+  </metadata>
+  <data name="CheckBox_3E.ToolTip" xml:space="preserve">
+    <value>Sets something unknown to 1
+
+Default Init = 0
+0 == do set some stuff, 
+1 == skip
+
+Note: When checked then it skip something unknown, 
+can be something related to computing, or something simpler like FMV skip.
+For now is unknown what is skipped. </value>
+  </data>
+  <metadata name="ToolTip35.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>142, 60</value>
+  </metadata>
+  <metadata name="ToolTip2B.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 60</value>
+  </metadata>
+  <metadata name="ToolTip2A.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>970, 17</value>
+  </metadata>
+  <metadata name="ToolTip23.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>846, 17</value>
+  </metadata>
+  <data name="CheckBox_ID23.ToolTip" xml:space="preserve">
+    <value>memcpy 0x100 Bytes and sets 0x14E00 (85504 in decimal)
+
+Note: can be related to 0x06 config setting where applied value is 0x14F80, 
+and to 0x4A where value is 0x15100 probably using both,
+ or more of this config settings in one time is bad idea.
+</value>
+  </data>
+  <metadata name="ToolTip22.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>722, 17</value>
+  </metadata>
+  <metadata name="ToolTip1B.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>597, 17</value>
+  </metadata>
+  <metadata name="ToolTip1A.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>471, 17</value>
+  </metadata>
+  <metadata name="ToolTip19.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>347, 17</value>
+  </metadata>
+  <metadata name="ToolTip14.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>223, 17</value>
+  </metadata>
+  <metadata name="ToolTip03.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="GameID_TIP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>181, 54</value>
+  </metadata>
+  <data name="Label72.ToolTip" xml:space="preserve">
+    <value>Type here Game ID for game that config will be used in format XXXX-YYYYY . 
+For example NTSC-U version of game "Bully" is SLUS-21269 
+
+Note: If you are not sure what to write here, just type 0000-00000</value>
+  </data>
+  <data name="Param_Simple_ID00.ToolTip" xml:space="preserve">
+    <value>Type here Game ID for game that config will be used in format XXXX-YYYYY . 
+For example NTSC-U version of game "Bully" is SLUS-21269 
+
+Note: If you are not sure what to write here, just type 0000-00000 </value>
+  </data>
   <metadata name="DataGridViewTextBoxColumn3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
