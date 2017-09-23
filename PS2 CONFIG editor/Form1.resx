@@ -165,7 +165,7 @@ or more of this config settings in one time is bad idea.
     <value>390, 60</value>
   </metadata>
   <data name="CheckBox_ID40.ToolTip" xml:space="preserve">
-    <value>Sets something to 1
+    <value>Sets something unknown to 1
 
 Originally used in:
 - Grand Theft Auto SA
@@ -179,13 +179,15 @@ Fahrenheit - fixes freeze after Lucas' apartment</value>
     <value>266, 60</value>
   </metadata>
   <data name="CheckBox_3E.ToolTip" xml:space="preserve">
-    <value>Sets something to 1
+    <value>Sets something unknown to 1
 
 Default Init = 0
 0 == do set some stuff, 
 1 == skip
 
-Note: When checked then it skip something unknown (can be something related to computing, or something simpler like FMV skip.) For now is unknown what is skipped. </value>
+Note: When checked then it skip something unknown, 
+can be something related to computing, or something simpler like FMV skip.
+For now is unknown what is skipped. </value>
   </data>
   <metadata name="ToolTip35.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>142, 60</value>
@@ -222,7 +224,7 @@ and to 0x4A where value is 0x15100 probably using both,
   <metadata name="ToolTip14.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>223, 17</value>
   </metadata>
-  <metadata name="test.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="ToolTip03.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="GameID_TIP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -332,8 +334,5 @@ Note: If you are not sure what to write here, just type 0000-00000 </value>
   </metadata>
   <metadata name="DataGridViewTextBoxColumn13.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>514, 60</value>
   </metadata>
 </root>

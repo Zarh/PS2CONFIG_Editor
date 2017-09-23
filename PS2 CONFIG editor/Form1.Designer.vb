@@ -283,7 +283,7 @@ Partial Class Form1
         Me.Label49 = New System.Windows.Forms.Label()
         Me.GroupBox2A = New System.Windows.Forms.GroupBox()
         Me.Label48 = New System.Windows.Forms.Label()
-        Me.test = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolTip03 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolTip06 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolTip14 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolTip19 = New System.Windows.Forms.ToolTip(Me.components)
@@ -296,7 +296,6 @@ Partial Class Form1
         Me.ToolTip35 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolTip3E = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolTip40 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolTip41 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolTip44 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolTip45 = New System.Windows.Forms.ToolTip(Me.components)
@@ -505,7 +504,7 @@ Partial Class Form1
         Me.CheckBox_ID47.Size = New System.Drawing.Size(60, 21)
         Me.CheckBox_ID47.TabIndex = 95
         Me.CheckBox_ID47.Text = "0x47"
-        Me.ToolTip47.SetToolTip(Me.CheckBox_ID47, "Sets something to 1")
+        Me.ToolTip47.SetToolTip(Me.CheckBox_ID47, "Sets something unknown to 1")
         Me.CheckBox_ID47.UseVisualStyleBackColor = True
         '
         'CheckBox_ID46
@@ -517,7 +516,7 @@ Partial Class Form1
         Me.CheckBox_ID46.Size = New System.Drawing.Size(60, 21)
         Me.CheckBox_ID46.TabIndex = 94
         Me.CheckBox_ID46.Text = "0x46"
-        Me.ToolTip46.SetToolTip(Me.CheckBox_ID46, "Sets something to 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Originally used in:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- SMT Digital Devil Saga 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- SMT N" &
+        Me.ToolTip46.SetToolTip(Me.CheckBox_ID46, "Sets something unknown to 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Originally used in:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- SMT Digital Devil Saga 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- SMT N" &
         "octurne" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Fatal Frame II")
         Me.CheckBox_ID46.UseVisualStyleBackColor = True
         '
@@ -530,7 +529,7 @@ Partial Class Form1
         Me.CheckBox_ID45.Size = New System.Drawing.Size(60, 21)
         Me.CheckBox_ID45.TabIndex = 93
         Me.CheckBox_ID45.Text = "0x45"
-        Me.ToolTip45.SetToolTip(Me.CheckBox_ID45, "Sets something to 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Originally used in:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Phantasy Star Complete Collection" &
+        Me.ToolTip45.SetToolTip(Me.CheckBox_ID45, "Sets something unknown to 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Originally used in:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Phantasy Star Complete Collection" &
         "")
         Me.CheckBox_ID45.UseVisualStyleBackColor = True
         '
@@ -591,7 +590,7 @@ Partial Class Form1
         Me.CheckBox_ID35.Size = New System.Drawing.Size(60, 21)
         Me.CheckBox_ID35.TabIndex = 88
         Me.CheckBox_ID35.Text = "0x35"
-        Me.ToolTip35.SetToolTip(Me.CheckBox_ID35, "Sets something to 1")
+        Me.ToolTip35.SetToolTip(Me.CheckBox_ID35, "Sets something unknown to 1")
         Me.CheckBox_ID35.UseVisualStyleBackColor = True
         '
         'CheckBox_ID2B
@@ -615,7 +614,7 @@ Partial Class Form1
         Me.CheckBox_ID2A.Size = New System.Drawing.Size(61, 21)
         Me.CheckBox_ID2A.TabIndex = 86
         Me.CheckBox_ID2A.Text = "0x2A"
-        Me.ToolTip2A.SetToolTip(Me.CheckBox_ID2A, "Sets something to 1")
+        Me.ToolTip2A.SetToolTip(Me.CheckBox_ID2A, "Sets something unknown to 1")
         Me.CheckBox_ID2A.UseVisualStyleBackColor = True
         '
         'CheckBox_ID23
@@ -639,7 +638,7 @@ Partial Class Form1
         Me.CheckBox_ID22.Size = New System.Drawing.Size(60, 21)
         Me.CheckBox_ID22.TabIndex = 84
         Me.CheckBox_ID22.Text = "0x22"
-        Me.ToolTip22.SetToolTip(Me.CheckBox_ID22, "Sets something to 1")
+        Me.ToolTip22.SetToolTip(Me.CheckBox_ID22, "Sets something unknown to 1")
         Me.CheckBox_ID22.UseVisualStyleBackColor = True
         '
         'CheckBox_ID1B
@@ -651,7 +650,7 @@ Partial Class Form1
         Me.CheckBox_ID1B.Size = New System.Drawing.Size(61, 21)
         Me.CheckBox_ID1B.TabIndex = 83
         Me.CheckBox_ID1B.Text = "0x1B"
-        Me.ToolTip1B.SetToolTip(Me.CheckBox_ID1B, "Sets something to 1 " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Originally used in:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Mana Khemia 2" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
+        Me.ToolTip1B.SetToolTip(Me.CheckBox_ID1B, "Sets something unknown to 1 " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Originally used in:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Mana Khemia 2" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
         Me.CheckBox_ID1B.UseVisualStyleBackColor = True
         '
         'CheckBox_ID1A
@@ -663,7 +662,7 @@ Partial Class Form1
         Me.CheckBox_ID1A.Size = New System.Drawing.Size(61, 21)
         Me.CheckBox_ID1A.TabIndex = 82
         Me.CheckBox_ID1A.Text = "0x1A"
-        Me.ToolTip1A.SetToolTip(Me.CheckBox_ID1A, "Sets something to 1")
+        Me.ToolTip1A.SetToolTip(Me.CheckBox_ID1A, "Sets something unknown to 1")
         Me.CheckBox_ID1A.UseVisualStyleBackColor = True
         '
         'CheckBox_ID19
@@ -675,7 +674,7 @@ Partial Class Form1
         Me.CheckBox_ID19.Size = New System.Drawing.Size(60, 21)
         Me.CheckBox_ID19.TabIndex = 81
         Me.CheckBox_ID19.Text = "0x19"
-        Me.ToolTip19.SetToolTip(Me.CheckBox_ID19, "Sets something to 1 - SB_SIO2 related?" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Originally used in:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Grand Theft Au" &
+        Me.ToolTip19.SetToolTip(Me.CheckBox_ID19, "Sets something unknown to 1 - SB_SIO2 related?" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Originally used in:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Grand Theft Au" &
         "to III" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Red Faction 2" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Siren")
         Me.CheckBox_ID19.UseVisualStyleBackColor = True
         '
@@ -688,7 +687,7 @@ Partial Class Form1
         Me.CheckBox_ID14.Size = New System.Drawing.Size(60, 21)
         Me.CheckBox_ID14.TabIndex = 80
         Me.CheckBox_ID14.Text = "0x14"
-        Me.ToolTip14.SetToolTip(Me.CheckBox_ID14, "Sets something to 1")
+        Me.ToolTip14.SetToolTip(Me.CheckBox_ID14, "Sets something unknown to 1")
         Me.CheckBox_ID14.UseVisualStyleBackColor = True
         '
         'CheckBox_ID03
@@ -700,7 +699,7 @@ Partial Class Form1
         Me.CheckBox_ID03.Size = New System.Drawing.Size(60, 21)
         Me.CheckBox_ID03.TabIndex = 78
         Me.CheckBox_ID03.Text = "0x03"
-        Me.test.SetToolTip(Me.CheckBox_ID03, "Sets something to 0" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Originally used in: " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Fire Pro Wrestling Returns")
+        Me.ToolTip03.SetToolTip(Me.CheckBox_ID03, "Sets something unknown to 0" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Originally used in: " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Fire Pro Wrestling Returns")
         Me.CheckBox_ID03.UseVisualStyleBackColor = True
         '
         'Save_Simple
@@ -3761,7 +3760,7 @@ Partial Class Form1
     Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents test As ToolTip
+    Friend WithEvents ToolTip03 As ToolTip
     Friend WithEvents ToolTip06 As ToolTip
     Friend WithEvents ToolTip14 As ToolTip
     Friend WithEvents ToolTip2B As ToolTip
@@ -3782,6 +3781,5 @@ Partial Class Form1
     Friend WithEvents ToolTip40 As ToolTip
     Friend WithEvents ToolTip3E As ToolTip
     Friend WithEvents ToolTip35 As ToolTip
-    Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents GameID_TIP As ToolTip
 End Class
