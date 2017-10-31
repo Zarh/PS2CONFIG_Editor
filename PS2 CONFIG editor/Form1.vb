@@ -139,6 +139,16 @@ Public Class Form1
         Next
     End Sub
 
+    Private Sub Number_ID01_ValueChanged(sender As Object, e As EventArgs) Handles Number_ID01.ValueChanged
+        If Not Me.DataGridView_ID01.ColumnCount = 0 Then
+            While Number_ID01.Value > Me.DataGridView_ID01.RowCount
+                Me.DataGridView_ID01.Rows.Add()
+            End While
+            While Number_ID01.Value < Me.DataGridView_ID01.RowCount
+                Me.DataGridView_ID01.Rows.RemoveAt(Me.DataGridView_ID01.RowCount - 1)
+            End While
+        End If
+    End Sub
     Private Sub Number_ID8_ValueChanged(sender As Object, e As EventArgs) Handles Number_ID8.ValueChanged
         If Not Me.DataGridView1_ID8.ColumnCount = 0 And Not Me.DataGridView2_ID8.ColumnCount = 0 Then
             While Number_ID8.Value > Me.DataGridView1_ID8.RowCount
@@ -277,8 +287,10 @@ Public Class Form1
                         For Each element In group.Controls
                             If TypeOf element Is TextBox Then
                                 If element.Text = Nothing Then
-                                    MsgBox("A parameter for the '" & group.text & "' is missing")
-                                    Exit Sub
+                                    If Not group.text.ToString.Contains("0x00") Then
+                                        MsgBox("A parameter for the '" & group.text & "' is missing")
+                                        Exit Sub
+                                    End If
                                 End If
                             End If
                             If TypeOf element Is DataGridView Then
@@ -287,7 +299,6 @@ Public Class Form1
                                 Dim j = 0
                                 For i = 0 To element.RowCount - 1 Step 1
                                     For j = 0 To element.ColumnCount - 1 Step 1
-                                        MsgBox("i " & i.ToString & " j " & j.ToString)
                                         If element.item(j, i).value = Nothing Then
                                             MsgBox("A parameter for the '" & group.text & "' is missing")
                                             Exit Sub
@@ -311,16 +322,31 @@ Public Class Form1
 
             For Each list_item In ListBox1.Items
 
-                If Not list_item = "0x08" And Not list_item = "0x3D" And Not list_item = "0x00" Then
+                If Not list_item = "0x00" And
+                    Not list_item = "0x3D" And
+                    Not list_item = "0x01" And
+                    Not list_item = "0x08" And
+                    Not list_item = "0x0E" And
+                    Not list_item = "0x0F" And
+                    Not list_item = "0x10" And
+                    Not list_item = "0x11" And
+                    Not list_item = "0x26" And
+                    Not list_item = "0x27" Then
                     u32 = Convert.ToUInt32(list_item.Substring(2), 16)
                     writer.Write(u32)
                 End If
 
                 If list_item = "0x01" Then
-                    u32 = Convert.ToUInt32(Param1_ID01.Text, 16)
-                    writer.Write(u32)
-                    u32 = Convert.ToUInt32(Param2_ID01.Text, 16)
-                    writer.Write(u32)
+                    Dim i As Integer
+                    For i = 0 To Number_ID01.Value - 1 Step 1
+                        u32 = Convert.ToUInt32(list_item.Substring(2), 16)
+                        writer.Write(u32)
+
+                        u32 = Convert.ToUInt32(DataGridView_ID01.Item(0, i).Value.ToString, 16)
+                        writer.Write(u32)
+                        u32 = Convert.ToUInt32(DataGridView_ID01.Item(1, i).Value.ToString, 16)
+                        writer.Write(u32)
+                    Next
                 End If
                 If list_item = "0x02" Then
                     u32 = Convert.ToUInt32(Param_ID2.Text, 16)
@@ -358,7 +384,7 @@ Public Class Form1
                     Next
                 End If
                 If list_item = "0x09" Then
-                    u32 = Convert.ToUInt32(Number_ID9.Value, 16)
+                    u32 = Number_ID9.Value
                     writer.Write(u32)
 
                     Dim i As Integer
@@ -377,7 +403,7 @@ Public Class Form1
                     Next
                 End If
                 If list_item = "0x0A" Then
-                    u32 = Convert.ToUInt32(Number_IDA.Value, 16)
+                    u32 = Number_IDA.Value
                     writer.Write(u32)
 
                     Dim i As Integer
@@ -391,8 +417,9 @@ Public Class Form1
                     Next
                 End If
                 If list_item = "0x0B" Then
-                    u32 = Convert.ToUInt32(Number_IDB.Value, 16)
+                    u32 = Number_IDB.Value
                     writer.Write(u32)
+
                     Dim i As Integer
                     For i = 0 To Number_IDB.Value - 1 Step 1
                         u32 = Convert.ToUInt32(DataGridView_IDB.Item(0, i).Value.ToString, 16)
@@ -403,13 +430,13 @@ Public Class Form1
                         size = DataGridView_IDB.Item(2, i).Value.ToString.Length / 2
                         writer.Write(size)
                         Dim j As Integer
-                        For j = 0 To size / 4 - 1 Step 1
-                            u32 = Convert.ToUInt32(DataGridView_IDB.Item(2, i).Value.ToString.Substring(8 * j, 8), 16)
-                            writer.Write(u32)
+                        For j = 0 To size - 1 Step 1
+                            Dim byt = Convert.ToByte(DataGridView_IDB.Item(2, i).Value.ToString.Substring(j * 2, 2), 16)
+                            writer.Write(byt)
                         Next
-                        For j = 0 To size / 4 - 1 Step 1
-                            u32 = Convert.ToUInt32(DataGridView_IDB.Item(3, i).Value.ToString.Substring(8 * j, 8), 16)
-                            writer.Write(u32)
+                        For j = 0 To size - 1 Step 1
+                            Dim byt = Convert.ToByte(DataGridView_IDB.Item(3, i).Value.ToString.Substring(j * 2, 2), 16)
+                            writer.Write(byt)
                         Next
                     Next
                 End If
@@ -427,13 +454,17 @@ Public Class Form1
                 If list_item = "0x0E" Then
                     Dim i As Integer
                     For i = 0 To Number_IDE.Value - 1 Step 1
-                        u32 = Convert.ToUInt32(DataGridView_IDE.Item(1, i).Value.ToString, 16)
+                        u32 = Convert.ToUInt32(list_item.Substring(2), 16)
+                        writer.Write(u32)
+                        u32 = Convert.ToUInt32(DataGridView_IDE.Item(0, i).Value.ToString, 16)
                         writer.Write(u32)
                     Next
                 End If
                 If list_item = "0x0F" Then
                     Dim i As Integer
                     For i = 0 To Number_IDF.Value - 1 Step 1
+                        u32 = Convert.ToUInt32(list_item.Substring(2), 16)
+                        writer.Write(u32)
                         u32 = Convert.ToUInt32(DataGridView_IDF.Item(0, i).Value.ToString, 16)
                         writer.Write(u32)
                         u32 = Convert.ToUInt32(DataGridView_IDF.Item(1, i).Value.ToString, 16)
@@ -443,6 +474,9 @@ Public Class Form1
                 If list_item = "0x10" Then
                     Dim i As Integer
                     For i = 0 To Number_ID10.Value - 1 Step 1
+                        u32 = Convert.ToUInt32(list_item.Substring(2), 16)
+                        writer.Write(u32)
+
                         u32 = Convert.ToUInt32(DataGridView_ID10.Item(0, i).Value.ToString, 16)
                         writer.Write(u32)
                         u32 = Convert.ToUInt32(DataGridView_ID10.Item(1, i).Value.ToString, 16)
@@ -452,12 +486,15 @@ Public Class Form1
                 If list_item = "0x11" Then
                     Dim i As Integer
                     For i = 0 To Number_ID11.Value - 1 Step 1
+                        u32 = Convert.ToUInt32(list_item.Substring(2), 16)
+                        writer.Write(u32)
+
                         u32 = Convert.ToUInt32(DataGridView_ID11.Item(0, i).Value.ToString, 16)
                         writer.Write(u32)
                     Next
                 End If
                 If list_item = "0x12" Then
-                    u32 = Convert.ToUInt32(Number_ID12.Value, 16)
+                    u32 = Number_ID12.Value
                     writer.Write(u32)
 
                     Dim i As Integer
@@ -503,7 +540,7 @@ Public Class Form1
                     writer.Write(u64)
                 End If
                 If list_item = "0x21" Then
-                    u32 = Convert.ToUInt32(Number_ID21.Value, 16)
+                    u32 = Number_ID21.Value
                     writer.Write(u32)
                 End If
                 If list_item = "0x24" Then
@@ -514,6 +551,9 @@ Public Class Form1
                 If list_item = "0x26" Then
                     Dim i As Integer
                     For i = 0 To Number_ID26.Value - 1 Step 1
+                        u32 = Convert.ToUInt32(list_item.Substring(2), 16)
+                        writer.Write(u32)
+
                         u32 = Convert.ToUInt32(DataGridView_ID26.Item(0, i).Value.ToString, 16)
                         writer.Write(u32)
                         u32 = Convert.ToUInt32(DataGridView_ID26.Item(1, i).Value.ToString, 16)
@@ -523,6 +563,9 @@ Public Class Form1
                 If list_item = "0x27" Then
                     Dim i As Integer
                     For i = 0 To Number_ID27.Value - 1 Step 1
+                        u32 = Convert.ToUInt32(list_item.Substring(2), 16)
+                        writer.Write(u32)
+
                         u32 = Convert.ToUInt32(DataGridView_ID27.Item(0, i).Value.ToString, 16)
                         writer.Write(u32)
                         u32 = Convert.ToUInt32(DataGridView_ID27.Item(1, i).Value.ToString, 16)
@@ -564,9 +607,9 @@ Public Class Form1
                     writer.Write(u32)
                 End If
                 If list_item = "0x48" Then
-                    u32 = Convert.ToUInt32(Param1_ID4B.Text, 16)
+                    u32 = Convert.ToUInt32(Param1_ID48.Text, 16)
                     writer.Write(u32)
-                    u32 = Convert.ToUInt32(Param2_ID4B.Text, 16)
+                    u32 = Convert.ToUInt32(Param2_ID48.Text, 16)
                     writer.Write(u32)
                 End If
                 If list_item = "0x4B" Then
@@ -582,7 +625,7 @@ Public Class Form1
                     writer.Write(u32)
                 End If
                 If list_item = "0x4D" Then
-                    u32 = Convert.ToUInt32(Param_ID43.Text, 16)
+                    u32 = Convert.ToUInt32(Param_ID4D.Text, 16)
                     writer.Write(u32)
                 End If
             Next
@@ -600,9 +643,361 @@ Public Class Form1
         Param_ID00.Text = Param_Simple_ID00.Text
     End Sub
 
-    Private Sub Param1_ID01_TextChanged(sender As Object, e As EventArgs) Handles Param1_ID01.TextChanged
+    Private Sub Param1_ID01_TextChanged(sender As Object, e As EventArgs)
         Param_Simple_ID00.Text = Param_ID00.Text
     End Sub
 
+    Private Sub Clean()
+        For Each box In Me.Tab_Simple.Controls
+            If TypeOf box Is CheckBox Then
+                box.Checked = False
+            ElseIf TypeOf box Is TextBox Then
+                box.Text = Nothing
+            End If
+        Next
+
+        For Each ctrl As Control In Me.Tab_Advanced.Controls
+            If TypeOf ctrl Is GroupBox Then
+                For Each box In ctrl.Controls
+                    If TypeOf box Is CheckBox Then
+                        box.Checked = False
+                    ElseIf TypeOf box Is TextBox Then
+                        box.Text = Nothing
+                    ElseIf TypeOf box Is NumericUpDown Then
+                        box.Value = 0
+                    ElseIf TypeOf box Is DataGridView Then
+                        box.Rows.Clear()
+                    End If
+                Next
+            End If
+        Next
+
+        ListBox1.Items.Clear()
+        Me.ListBox1.Items.Add("0x00")
+        Me.ListBox1.Items.Add("0x3D")
+        ListBox1.SelectedIndex = 0
+
+    End Sub
+    Private Sub Form1_DragDrop(sender As Object, e As DragEventArgs) Handles TabControl1.DragDrop
+
+        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
+            Dim filePath = CType(e.Data.GetData(DataFormats.FileDrop), String())(0)
+
+            Clean()
+
+            Using reader As BinaryReader = New BinaryReader(File.Open(filePath, FileMode.Open))
+                Dim u32 As UInt32
+                u32 = reader.ReadUInt32()
+                If Not u32 = &H3D Then
+                    MsgBox("Command 0x3D (rev) not found.")
+                    Exit Sub
+                End If
+                u32 = reader.ReadUInt32()
+                Param_ID3D.Text = Convert.ToString(u32, 16).ToUpper
+
+                While reader.PeekChar() >= 0
+
+                    u32 = reader.ReadUInt32()
+
+                    Dim ID = "0x" & Convert.ToString(u32, 16).ToUpper.PadLeft(2, "0")
+                    If Not ListBox1.Items.Contains(ID) Then
+                        ListBox1.Items.Add(ID)
+                         For Each box In Me.Tab_Simple.Controls
+                            If TypeOf box Is CheckBox Then
+                                If box.text = ID Then
+                                    box.Checked = True
+
+                                End If
+                            End If
+                        Next
+                    End If
+
+                    If ID = "0x00" Then
+                        Dim GameID = reader.ReadChars(10)
+                        If Not GameID = Nothing Then
+                            Param_ID00.Text = GameID
+                            Param_Simple_ID00.Text = GameID
+                        End If
+                        Exit Sub
+                    End If
+                    If ID = "0x01" Then
+                        Number_ID01.Value += 1
+
+                        u32 = reader.ReadUInt32()
+                        DataGridView_ID01.Item(0, CInt(Number_ID01.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        DataGridView_ID01.Item(1, CInt(Number_ID01.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x02" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID2.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x04" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID04.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x07" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID7.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x08" Then
+                        Number_ID8.Value += 1
+
+                        u32 = reader.ReadUInt32()
+                        DataGridView1_ID8.Item(0, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        DataGridView1_ID8.Item(1, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        DataGridView1_ID8.Item(2, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        DataGridView1_ID8.Item(3, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        DataGridView2_ID8.Item(0, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        DataGridView2_ID8.Item(1, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        DataGridView2_ID8.Item(2, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        DataGridView2_ID8.Item(3, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                    End If
+                    If ID = "0x09" Then
+                        u32 = reader.ReadUInt32()
+                        Number_ID9.Value = u32
+
+                        Dim i As Integer
+                        For i = 0 To Number_ID9.Value - 1 Step 1
+                            u32 = reader.ReadUInt32()
+                            DataGridView_ID9.Item(0, i).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                            u32 = reader.ReadUInt32()
+                            DataGridView_ID9.Item(1, i).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                            u32 = reader.ReadUInt32()
+                            DataGridView_ID9.Item(2, i).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                            u32 = reader.ReadUInt32()
+                            DataGridView_ID9.Item(3, i).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                            u32 = reader.ReadUInt32()
+                            DataGridView_ID9.Item(4, i).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        Next
+                    End If
+                    If ID = "0x0A" Then
+                        u32 = reader.ReadUInt32()
+                        Number_IDA.Value = u32
+
+                        Dim i As Integer
+                        For i = 0 To Number_IDA.Value - 1 Step 1
+                            u32 = reader.ReadUInt32()
+                            DataGridView_IDA.Item(0, i).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                            u32 = reader.ReadUInt32()
+                            DataGridView_IDA.Item(1, i).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                            u32 = reader.ReadUInt32()
+                            DataGridView_IDA.Item(2, i).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        Next
+                    End If
+                    If ID = "0x0B" Then
+                        u32 = reader.ReadUInt32()
+                        Number_IDB.Value = u32
+
+                        Dim i As Integer
+                        For i = 0 To Number_IDB.Value - 1 Step 1
+                            u32 = reader.ReadUInt32()
+                            DataGridView_IDB.Item(0, i).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                            u32 = reader.ReadUInt32()
+                            DataGridView_IDB.Item(1, i).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+
+                            Dim size As UInt32
+                            size = reader.ReadUInt32()
+                            Dim j As Integer
+                            For j = 0 To size - 1 Step 1
+                                Dim byt = reader.ReadByte()
+                                DataGridView_IDB.Item(2, i).Value += Convert.ToString(byt, 16).ToUpper.PadLeft(2, "0")
+                            Next
+                            For j = 0 To size - 1 Step 1
+                                Dim byt = reader.ReadByte()
+                                DataGridView_IDB.Item(3, i).Value += Convert.ToString(byt, 16).ToUpper.PadLeft(2, "0")
+                            Next
+
+                        Next
+                    End If
+                    If ID = "0x0C" Then
+                        u32 = reader.ReadUInt32()
+                        Param_IDC.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x0D" Then
+                        u32 = reader.ReadUInt32()
+                        If u32 = &H1 Then
+                            CheckBox_0D.Checked = True
+                        Else
+                            CheckBox_0D.Checked = False
+                        End If
+                    End If
+                    If ID = "0x0E" Then
+                        Number_IDE.Value += 1
+                        u32 = reader.ReadUInt32()
+                        DataGridView_IDE.Item(0, CInt(Number_IDE.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x0F" Then
+                        Number_IDF.Value += 1
+
+                        u32 = reader.ReadUInt32()
+                        DataGridView_IDF.Item(0, CInt(Number_IDF.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        DataGridView_IDF.Item(1, CInt(Number_IDF.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x10" Then
+                        Number_ID10.Value += 1
+
+                        u32 = reader.ReadUInt32()
+                        DataGridView_ID10.Item(0, CInt(Number_ID10.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        DataGridView_ID10.Item(1, CInt(Number_ID10.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x11" Then
+                        Number_ID11.Value += 1
+
+                        u32 = reader.ReadUInt32()
+                        DataGridView_ID11.Item(0, CInt(Number_ID10.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x12" Then
+                        u32 = reader.ReadUInt32()
+                        Number_ID12.Value = u32
+                        Dim i As Integer
+                        For i = 0 To Number_ID12.Value - 1 Step 1
+                            u32 = reader.ReadUInt32()
+                            DataGridView_ID12.Item(0, i).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        Next
+                    End If
+                    If ID = "0x13" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID13.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x15" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID15.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x17" Then
+                        u32 = reader.ReadUInt32()
+                        If u32 = &H1 Then
+                            CheckBox_17.Checked = True
+                        Else
+                            CheckBox_17.Checked = False
+                        End If
+                    End If
+                    If ID = "0x1C" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID1C.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x1D" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID1D.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x1E" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID1E.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x1F" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID1F.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x20" Then
+                        Dim u64 As UInt64
+                        u64 = reader.ReadUInt64()
+                        u32 = u64
+                        Param_ID1F.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(16, "0") 'Cannot convert u64...
+                    End If
+                    If ID = "0x21" Then
+                        u32 = reader.ReadUInt32()
+                        Number_ID21.Value = u32
+                    End If
+                    If ID = "0x24" Then
+                        Dim u64 As UInt64
+                        u64 = reader.ReadUInt64()
+                        u32 = u64
+                        Param_ID24.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0") 'Cannot convert u64...
+                    End If
+                    If ID = "0x26" Then
+                        Number_ID26.Value += 1
+
+                        u32 = reader.ReadUInt32()
+                        DataGridView_ID26.Item(0, CInt(Number_ID26.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        DataGridView_ID26.Item(1, CInt(Number_ID26.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x27" Then
+                        Number_ID27.Value += 1
+
+                        u32 = reader.ReadUInt32()
+                        DataGridView_ID27.Item(0, CInt(Number_ID26.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        DataGridView_ID27.Item(1, CInt(Number_ID26.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x28" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID28.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x29" Then
+                        u32 = reader.ReadUInt32()
+                        Param1_ID29.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        Param2_ID29.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x2C" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID2C.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x2E" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID2E.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x2F" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID2F.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x3F" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID3F.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x42" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID42.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x43" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID43.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x48" Then
+                        u32 = reader.ReadUInt32()
+                        Param1_ID48.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        Param2_ID48.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x4B" Then
+                        u32 = reader.ReadUInt32()
+                        Param1_ID4B.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        Param2_ID4B.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x4C" Then
+                        u32 = reader.ReadUInt32()
+                        Param1_ID4C.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        Param2_ID4C.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+                    If ID = "0x4D" Then
+                        u32 = reader.ReadUInt32()
+                        Param_ID4D.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                    End If
+
+                End While
+
+            End Using
+        End If
+
+    End Sub
+
+    Private Sub Form1_DragEnter(sender As Object, e As DragEventArgs) Handles TabControl1.DragEnter
+        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
+            e.Effect = DragDropEffects.Copy
+        End If
+    End Sub
 
 End Class
