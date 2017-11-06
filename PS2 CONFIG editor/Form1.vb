@@ -265,11 +265,6 @@ Public Class Form1
 
     Private Sub Save_Click(sender As Object, e As EventArgs) Handles Save.Click, Save_Simple.Click
 
-        If Not ListBox1.Items.Contains("0x00") And ListBox1.Items.Contains("0x00") Then
-            MsgBox("You have to add the cmd ""0x00""")
-            Exit Sub
-        End If
-
         If Not ListBox1.Items.Contains("0x00") Then
             MsgBox("You have to add the cmd ""0x00""")
             Exit Sub
@@ -279,6 +274,8 @@ Public Class Form1
             MsgBox("You have to add the cmd ""0x3D""")
             Exit Sub
         End If
+
+        
 
         For Each list_item In ListBox1.Items
             For Each group In Me.Tab_Advanced.Controls
@@ -312,6 +309,8 @@ Public Class Form1
                 End If
             Next
         Next
+
+        BIG_ENDIAN_ID09.Checked = False
 
         Using writer As BinaryWriter = New BinaryWriter(File.Open("CONFIG", FileMode.Create))
             Dim u32 As UInt32
@@ -1000,4 +999,35 @@ Public Class Form1
         End If
     End Sub
 
+
+    Private Sub BIG_ENDIAN_ID09_CheckedChanged(sender As Object, e As EventArgs) Handles BIG_ENDIAN_ID09.CheckedChanged
+        If BIG_ENDIAN_ID09.Checked = True Then
+            DataGridView_ID9.Columns.Item(1).DisplayIndex = 2
+            DataGridView_ID9.Columns.Item(3).DisplayIndex = 4
+        Else
+            DataGridView_ID9.Columns.Item(1).DisplayIndex = 1
+            DataGridView_ID9.Columns.Item(3).DisplayIndex = 3
+        End If
+
+        Dim i As Integer
+        Dim val As String
+        For i = 0 To Number_ID9.Value - 1 Step 1
+            val = DataGridView_ID9.Item(1, i).Value.ToString()
+            val = val.Substring(6, 2) + val.Substring(4, 2) + val.Substring(2, 2) + val.Substring(0, 2)
+            DataGridView_ID9.Item(1, i).Value = val
+
+            val = DataGridView_ID9.Item(2, i).Value.ToString()
+            val = val.Substring(6, 2) + val.Substring(4, 2) + val.Substring(2, 2) + val.Substring(0, 2)
+            DataGridView_ID9.Item(2, i).Value = val
+
+            val = DataGridView_ID9.Item(3, i).Value.ToString()
+            val = val.Substring(6, 2) + val.Substring(4, 2) + val.Substring(2, 2) + val.Substring(0, 2)
+            DataGridView_ID9.Item(3, i).Value = val
+
+            val = DataGridView_ID9.Item(4, i).Value.ToString()
+            val = val.Substring(6, 2) + val.Substring(4, 2) + val.Substring(2, 2) + val.Substring(0, 2)
+            DataGridView_ID9.Item(4, i).Value = val
+        Next
+
+    End Sub
 End Class
