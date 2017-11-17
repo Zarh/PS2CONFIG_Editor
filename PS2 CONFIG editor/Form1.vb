@@ -311,6 +311,7 @@ Public Class Form1
         Next
 
         BIG_ENDIAN_ID09.Checked = False
+        BIG_ENDIAN_ID0B.Checked = False
 
         Using writer As BinaryWriter = New BinaryWriter(File.Open("CONFIG", FileMode.Create))
             Dim u32 As UInt32
@@ -430,11 +431,11 @@ Public Class Form1
                         writer.Write(size)
                         Dim j As Integer
                         For j = 0 To size - 1 Step 1
-                            Dim byt = Convert.ToByte(DataGridView_IDB.Item(2, i).Value.ToString.Substring(j * 2, 2), 16)
+                            Dim byt = Convert.ToByte(DataGridView_IDB.Item(3, i).Value.ToString.Substring(j * 2, 2), 16)
                             writer.Write(byt)
                         Next
                         For j = 0 To size - 1 Step 1
-                            Dim byt = Convert.ToByte(DataGridView_IDB.Item(3, i).Value.ToString.Substring(j * 2, 2), 16)
+                            Dim byt = Convert.ToByte(DataGridView_IDB.Item(2, i).Value.ToString.Substring(j * 2, 2), 16)
                             writer.Write(byt)
                         Next
                     Next
@@ -535,7 +536,7 @@ Public Class Form1
                 End If
                 If list_item = "0x20" Then
                     Dim u64 As UInt64
-                    u64 = Convert.ToUInt64(Param_ID1F.Text, 16)
+                    u64 = Convert.ToUInt64(Param_ID20.Text, 16)
                     writer.Write(u64)
                 End If
                 If list_item = "0x21" Then
@@ -808,11 +809,11 @@ Public Class Form1
                             Dim j As Integer
                             For j = 0 To size - 1 Step 1
                                 Dim byt = reader.ReadByte()
-                                DataGridView_IDB.Item(2, i).Value += Convert.ToString(byt, 16).ToUpper.PadLeft(2, "0")
+                                DataGridView_IDB.Item(3, i).Value += Convert.ToString(byt, 16).ToUpper.PadLeft(2, "0")
                             Next
                             For j = 0 To size - 1 Step 1
                                 Dim byt = reader.ReadByte()
-                                DataGridView_IDB.Item(3, i).Value += Convert.ToString(byt, 16).ToUpper.PadLeft(2, "0")
+                                DataGridView_IDB.Item(2, i).Value += Convert.ToString(byt, 16).ToUpper.PadLeft(2, "0")
                             Next
 
                         Next
@@ -901,7 +902,7 @@ Public Class Form1
                         Dim u64 As UInt64
                         u64 = reader.ReadUInt64()
                         u32 = u64
-                        Param_ID1F.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(16, "0") 'Cannot convert u64...
+                        Param_ID20.Text = Convert.ToString(u32, 16).ToUpper 'Cannot convert u64...
                     End If
                     If ID = "0x21" Then
                         u32 = reader.ReadUInt32()
@@ -1030,4 +1031,32 @@ Public Class Form1
         Next
 
     End Sub
+
+    Private Sub BIG_ENDIAN_ID0B_CheckedChanged(sender As Object, e As EventArgs) Handles BIG_ENDIAN_ID0B.CheckedChanged
+        Dim i As Integer
+        Dim val As String
+        For i = 0 To Number_IDB.Value - 1 Step 1
+
+            Dim size = DataGridView_IDB.Item(2, i).Value.ToString.Length / 8
+
+            Dim new1 As String = Nothing
+            Dim new2 As String = Nothing
+            Dim j As Integer
+            For j = 0 To size - 1 Step 1
+                val = DataGridView_IDB.Item(2, i).Value.ToString.Substring(j * 8, 8)
+                val = val.Substring(6, 2) + val.Substring(4, 2) + val.Substring(2, 2) + val.Substring(0, 2)
+                new1 = new1 & val
+
+                val = DataGridView_IDB.Item(3, i).Value.ToString.Substring(j * 8, 8)
+                val = val.Substring(6, 2) + val.Substring(4, 2) + val.Substring(2, 2) + val.Substring(0, 2)
+                new2 = new2 & val
+            Next
+            DataGridView_IDB.Item(2, i).Value = new1
+            DataGridView_IDB.Item(3, i).Value = new2
+
+        Next
+
+    End Sub
+
+   
 End Class
