@@ -915,7 +915,7 @@ Partial Class Form1
         '
         Me.Param_ID20.Location = New System.Drawing.Point(49, 30)
         Me.Param_ID20.Name = "Param_ID20"
-        Me.Param_ID20.Size = New System.Drawing.Size(161, 20)
+        Me.Param_ID20.Size = New System.Drawing.Size(120, 20)
         Me.Param_ID20.TabIndex = 0
         '
         'Label33
@@ -2244,7 +2244,7 @@ Partial Class Form1
         '
         Me.Param_ID24.Location = New System.Drawing.Point(49, 30)
         Me.Param_ID24.Name = "Param_ID24"
-        Me.Param_ID24.Size = New System.Drawing.Size(77, 20)
+        Me.Param_ID24.Size = New System.Drawing.Size(120, 20)
         Me.Param_ID24.TabIndex = 0
         '
         'Label38
@@ -2703,7 +2703,7 @@ Partial Class Form1
         '
         Me.Param_ID13.Location = New System.Drawing.Point(49, 30)
         Me.Param_ID13.Name = "Param_ID13"
-        Me.Param_ID13.Size = New System.Drawing.Size(77, 20)
+        Me.Param_ID13.Size = New System.Drawing.Size(120, 20)
         Me.Param_ID13.TabIndex = 3
         '
         'Label12
@@ -3060,7 +3060,7 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "PS2 CONFIG editor v2.2"
+        Me.Text = "PS2 CONFIG editor v2.3"
         Me.TabControl1.ResumeLayout(False)
         Me.Tab_Simple.ResumeLayout(False)
         Me.Tab_Simple.PerformLayout()

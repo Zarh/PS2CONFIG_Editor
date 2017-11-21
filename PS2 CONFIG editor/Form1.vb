@@ -399,7 +399,6 @@ Public Class Form1
                         writer.Write(u32)
                         u32 = Convert.ToUInt32(DataGridView_ID9.Item(4, i).Value.ToString, 16)
                         writer.Write(u32)
-
                     Next
                 End If
                 If list_item = "0x0A" Then
@@ -504,7 +503,10 @@ Public Class Form1
                     Next
                 End If
                 If list_item = "0x13" Then
-                    u32 = Convert.ToUInt32(Param_ID13.Text, 16)
+                    Param_ID13.Text.PadLeft(16, "0")
+                    u32 = Convert.ToUInt32(Param_ID13.Text.Substring(0, 8), 16)
+                    writer.Write(u32)
+                    u32 = Convert.ToUInt32(Param_ID13.Text.Substring(8), 16)
                     writer.Write(u32)
                 End If
                 If list_item = "0x15" Then
@@ -535,18 +537,22 @@ Public Class Form1
                     writer.Write(u32)
                 End If
                 If list_item = "0x20" Then
-                    Dim u64 As UInt64
-                    u64 = Convert.ToUInt64(Param_ID20.Text, 16)
-                    writer.Write(u64)
+                    Param_ID20.Text.PadLeft(16, "0")
+                    u32 = Convert.ToUInt32(Param_ID20.Text.Substring(0, 8), 16)
+                    writer.Write(u32)
+                    u32 = Convert.ToUInt32(Param_ID20.Text.Substring(8), 16)
+                    writer.Write(u32)
                 End If
                 If list_item = "0x21" Then
                     u32 = Number_ID21.Value
                     writer.Write(u32)
                 End If
                 If list_item = "0x24" Then
-                    Dim u64 As UInt64
-                    u64 = Convert.ToUInt64(Param_ID24.Text, 16)
-                    writer.Write(u64)
+                    Param_ID24.Text.PadLeft(16, "0")
+                    u32 = Convert.ToUInt32(Param_ID24.Text.Substring(0, 8), 16)
+                    writer.Write(u32)
+                    u32 = Convert.ToUInt32(Param_ID24.Text.Substring(8), 16)
+                    writer.Write(u32)
                 End If
                 If list_item = "0x26" Then
                     Dim i As Integer
@@ -867,8 +873,10 @@ Public Class Form1
                         Next
                     End If
                     If ID = "0x13" Then
-                        u32 = reader.ReadUInt32()
+                        u32 = reader.ReadUInt32() 'ignore
                         Param_ID13.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        Param_ID13.Text = Param_ID13.Text & Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
                     End If
                     If ID = "0x15" Then
                         u32 = reader.ReadUInt32()
@@ -899,20 +907,20 @@ Public Class Form1
                         Param_ID1F.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
                     End If
                     If ID = "0x20" Then
-                        Dim u64 As UInt64
-                        u64 = reader.ReadUInt64()
-                        u32 = u64
-                        Param_ID20.Text = Convert.ToString(u32, 16).ToUpper 'Cannot convert u64...
+                        u32 = reader.ReadUInt32()
+                        Param_ID20.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        Param_ID20.Text = Param_ID20.Text & Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
                     End If
                     If ID = "0x21" Then
                         u32 = reader.ReadUInt32()
                         Number_ID21.Value = u32
                     End If
                     If ID = "0x24" Then
-                        Dim u64 As UInt64
-                        u64 = reader.ReadUInt64()
-                        u32 = u64
-                        Param_ID24.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0") 'Cannot convert u64...
+                        u32 = reader.ReadUInt32()
+                        Param_ID24.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32 = reader.ReadUInt32()
+                        Param_ID24.Text = Param_ID20.Text & Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
                     End If
                     If ID = "0x26" Then
                         Number_ID26.Value += 1
