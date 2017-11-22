@@ -3,6 +3,8 @@ Imports System.IO
 Imports System.Text
 
 Public Class Form1
+    Dim u32 As UInt32
+    Dim u32_2 As UInt32
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.CommandID.SelectedIndex = 0
@@ -275,7 +277,6 @@ Public Class Form1
             Exit Sub
         End If
 
-        
 
         For Each list_item In ListBox1.Items
             For Each group In Me.Tab_Advanced.Controls
@@ -363,23 +364,32 @@ Public Class Form1
                 If list_item = "0x08" Then
                     Dim i As Integer
                     For i = 0 To Number_ID8.Value - 1 Step 1
+
                         u32 = Convert.ToUInt32(list_item.Substring(2), 16)
                         writer.Write(u32)
-                        u32 = Convert.ToUInt32(DataGridView1_ID8.Item(0, i).Value.ToString, 16)
+
+                        DataGridView1_ID8.Item(0, i).Value = DataGridView1_ID8.Item(0, i).Value.ToString.PadLeft(16, "0")
+                        DataGridView1_ID8.Item(1, i).Value = DataGridView1_ID8.Item(1, i).Value.ToString.PadLeft(16, "0")
+
+                        DataGridView2_ID8.Item(0, i).Value = DataGridView2_ID8.Item(0, i).Value.ToString.PadLeft(16, "0")
+                        DataGridView2_ID8.Item(1, i).Value = DataGridView2_ID8.Item(1, i).Value.ToString.PadLeft(16, "0")
+
+                        u32 = Convert.ToUInt32(DataGridView1_ID8.Item(0, i).Value.ToString.Substring(0, 8), 16)
                         writer.Write(u32)
-                        u32 = Convert.ToUInt32(DataGridView1_ID8.Item(1, i).Value.ToString, 16)
+                        u32 = Convert.ToUInt32(DataGridView1_ID8.Item(0, i).Value.ToString.Substring(8), 16)
                         writer.Write(u32)
-                        u32 = Convert.ToUInt32(DataGridView1_ID8.Item(2, i).Value.ToString, 16)
+                        u32 = Convert.ToUInt32(DataGridView1_ID8.Item(1, i).Value.ToString.Substring(0, 8), 16)
                         writer.Write(u32)
-                        u32 = Convert.ToUInt32(DataGridView1_ID8.Item(3, i).Value.ToString, 16)
+                        u32 = Convert.ToUInt32(DataGridView1_ID8.Item(1, i).Value.ToString.Substring(8), 16)
                         writer.Write(u32)
-                        u32 = Convert.ToUInt32(DataGridView2_ID8.Item(0, i).Value.ToString, 16)
+
+                        u32 = Convert.ToUInt32(DataGridView2_ID8.Item(0, i).Value.ToString.Substring(0, 8), 16)
                         writer.Write(u32)
-                        u32 = Convert.ToUInt32(DataGridView2_ID8.Item(1, i).Value.ToString, 16)
+                        u32 = Convert.ToUInt32(DataGridView2_ID8.Item(0, i).Value.ToString.Substring(8), 16)
                         writer.Write(u32)
-                        u32 = Convert.ToUInt32(DataGridView2_ID8.Item(2, i).Value.ToString, 16)
+                        u32 = Convert.ToUInt32(DataGridView2_ID8.Item(1, i).Value.ToString.Substring(0, 8), 16)
                         writer.Write(u32)
-                        u32 = Convert.ToUInt32(DataGridView2_ID8.Item(3, i).Value.ToString, 16)
+                        u32 = Convert.ToUInt32(DataGridView2_ID8.Item(1, i).Value.ToString.Substring(8), 16)
                         writer.Write(u32)
                     Next
                 End If
@@ -692,7 +702,7 @@ Public Class Form1
             Clean()
 
             Using reader As BinaryReader = New BinaryReader(File.Open(filePath, FileMode.Open))
-                Dim u32 As UInt32
+
                 u32 = reader.ReadUInt32()
                 If Not u32 = &H3D Then
                     MsgBox("Command 0x3D (rev) not found.")
@@ -750,22 +760,20 @@ Public Class Form1
                         Number_ID8.Value += 1
 
                         u32 = reader.ReadUInt32()
-                        DataGridView1_ID8.Item(0, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32_2 = reader.ReadUInt32()
+                        DataGridView1_ID8.Item(0, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0") & Convert.ToString(u32_2, 16).ToUpper.PadLeft(8, "0")
+
                         u32 = reader.ReadUInt32()
-                        DataGridView1_ID8.Item(1, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32_2 = reader.ReadUInt32()
+                        DataGridView1_ID8.Item(1, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0") & Convert.ToString(u32_2, 16).ToUpper.PadLeft(8, "0")
+
                         u32 = reader.ReadUInt32()
-                        DataGridView1_ID8.Item(2, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
+                        u32_2 = reader.ReadUInt32()
+                        DataGridView2_ID8.Item(0, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0") & Convert.ToString(u32_2, 16).ToUpper.PadLeft(8, "0")
+
                         u32 = reader.ReadUInt32()
-                        DataGridView1_ID8.Item(3, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
-                        u32 = reader.ReadUInt32()
-                        DataGridView2_ID8.Item(0, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
-                        u32 = reader.ReadUInt32()
-                        DataGridView2_ID8.Item(1, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
-                        u32 = reader.ReadUInt32()
-                        DataGridView2_ID8.Item(2, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
-                        u32 = reader.ReadUInt32()
-                        DataGridView2_ID8.Item(3, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
-                        u32 = reader.ReadUInt32()
+                        u32_2 = reader.ReadUInt32()
+                        DataGridView2_ID8.Item(1, CInt(Number_ID8.Value - 1)).Value = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0") & Convert.ToString(u32_2, 16).ToUpper.PadLeft(8, "0")
                     End If
                     If ID = "0x09" Then
                         u32 = reader.ReadUInt32()
@@ -873,7 +881,7 @@ Public Class Form1
                         Next
                     End If
                     If ID = "0x13" Then
-                        u32 = reader.ReadUInt32() 'ignore
+                        u32 = reader.ReadUInt32()
                         Param_ID13.Text = Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")
                         u32 = reader.ReadUInt32()
                         Param_ID13.Text = Param_ID13.Text & Convert.ToString(u32, 16).ToUpper.PadLeft(8, "0")

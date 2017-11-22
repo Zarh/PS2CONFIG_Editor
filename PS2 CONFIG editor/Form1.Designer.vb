@@ -51,6 +51,15 @@ Partial Class Form1
         Me.Label72 = New System.Windows.Forms.Label()
         Me.Param_Simple_ID00 = New System.Windows.Forms.TextBox()
         Me.Tab_Advanced = New System.Windows.Forms.TabPage()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.DataGridView2_ID8 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridView1_ID8 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Number_ID8 = New System.Windows.Forms.NumericUpDown()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBoxB = New System.Windows.Forms.GroupBox()
         Me.BIG_ENDIAN_ID0B = New System.Windows.Forms.CheckBox()
         Me.DataGridView_IDB = New System.Windows.Forms.DataGridView()
@@ -114,19 +123,6 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Number_IDA = New System.Windows.Forms.NumericUpDown()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-        Me.DataGridView2_ID8 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView1_ID8 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Number_ID8 = New System.Windows.Forms.NumericUpDown()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Param_ID2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -311,6 +307,10 @@ Partial Class Form1
         Me.TabControl1.SuspendLayout()
         Me.Tab_Simple.SuspendLayout()
         Me.Tab_Advanced.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        CType(Me.DataGridView2_ID8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1_ID8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Number_ID8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxB.SuspendLayout()
         CType(Me.DataGridView_IDB, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Number_IDB, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -339,10 +339,6 @@ Partial Class Form1
         Me.GroupBoxA.SuspendLayout()
         CType(Me.DataGridView_IDA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Number_IDA, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox8.SuspendLayout()
-        CType(Me.DataGridView2_ID8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1_ID8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Number_ID8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox23.SuspendLayout()
         Me.GroupBox22.SuspendLayout()
@@ -715,6 +711,7 @@ Partial Class Form1
         '
         'Tab_Advanced
         '
+        Me.Tab_Advanced.Controls.Add(Me.GroupBox8)
         Me.Tab_Advanced.Controls.Add(Me.GroupBoxB)
         Me.Tab_Advanced.Controls.Add(Me.GroupBox1B)
         Me.Tab_Advanced.Controls.Add(Me.GroupBox20)
@@ -728,7 +725,6 @@ Partial Class Form1
         Me.Tab_Advanced.Controls.Add(Me.GroupBoxE)
         Me.Tab_Advanced.Controls.Add(Me.GroupBoxD)
         Me.Tab_Advanced.Controls.Add(Me.GroupBoxA)
-        Me.Tab_Advanced.Controls.Add(Me.GroupBox8)
         Me.Tab_Advanced.Controls.Add(Me.GroupBox2)
         Me.Tab_Advanced.Controls.Add(Me.Remove)
         Me.Tab_Advanced.Controls.Add(Me.Save)
@@ -795,6 +791,100 @@ Partial Class Form1
         Me.Tab_Advanced.TabIndex = 1
         Me.Tab_Advanced.Text = "Advanced"
         Me.Tab_Advanced.UseVisualStyleBackColor = True
+        '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.DataGridView2_ID8)
+        Me.GroupBox8.Controls.Add(Me.DataGridView1_ID8)
+        Me.GroupBox8.Controls.Add(Me.Number_ID8)
+        Me.GroupBox8.Controls.Add(Me.Label11)
+        Me.GroupBox8.Location = New System.Drawing.Point(81, 6)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(405, 301)
+        Me.GroupBox8.TabIndex = 86
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Command ID 0x08"
+        '
+        'DataGridView2_ID8
+        '
+        Me.DataGridView2_ID8.AllowUserToAddRows = False
+        Me.DataGridView2_ID8.AllowUserToDeleteRows = False
+        Me.DataGridView2_ID8.AllowUserToResizeColumns = False
+        Me.DataGridView2_ID8.AllowUserToResizeRows = False
+        Me.DataGridView2_ID8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2_ID8.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24})
+        Me.DataGridView2_ID8.EnableHeadersVisualStyles = False
+        Me.DataGridView2_ID8.Location = New System.Drawing.Point(9, 146)
+        Me.DataGridView2_ID8.MultiSelect = False
+        Me.DataGridView2_ID8.Name = "DataGridView2_ID8"
+        Me.DataGridView2_ID8.RowHeadersVisible = False
+        Me.DataGridView2_ID8.RowHeadersWidth = 20
+        Me.DataGridView2_ID8.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.DataGridView2_ID8.Size = New System.Drawing.Size(390, 86)
+        Me.DataGridView2_ID8.TabIndex = 23
+        '
+        'DataGridViewTextBoxColumn23
+        '
+        Me.DataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn23.HeaderText = "OriginalDataMask"
+        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
+        Me.DataGridViewTextBoxColumn23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'DataGridViewTextBoxColumn24
+        '
+        Me.DataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn24.HeaderText = "OriginalData"
+        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
+        Me.DataGridViewTextBoxColumn24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'DataGridView1_ID8
+        '
+        Me.DataGridView1_ID8.AllowUserToAddRows = False
+        Me.DataGridView1_ID8.AllowUserToDeleteRows = False
+        Me.DataGridView1_ID8.AllowUserToResizeColumns = False
+        Me.DataGridView1_ID8.AllowUserToResizeRows = False
+        Me.DataGridView1_ID8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1_ID8.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15})
+        Me.DataGridView1_ID8.EnableHeadersVisualStyles = False
+        Me.DataGridView1_ID8.Location = New System.Drawing.Point(9, 45)
+        Me.DataGridView1_ID8.MultiSelect = False
+        Me.DataGridView1_ID8.Name = "DataGridView1_ID8"
+        Me.DataGridView1_ID8.RowHeadersVisible = False
+        Me.DataGridView1_ID8.RowHeadersWidth = 20
+        Me.DataGridView1_ID8.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.DataGridView1_ID8.Size = New System.Drawing.Size(390, 86)
+        Me.DataGridView1_ID8.TabIndex = 22
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn14.HeaderText = "PatchedDataMask"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn15.HeaderText = "PatchedData"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Number_ID8
+        '
+        Me.Number_ID8.Location = New System.Drawing.Point(50, 16)
+        Me.Number_ID8.Maximum = New Decimal(New Integer() {3, 0, 0, 0})
+        Me.Number_ID8.Name = "Number_ID8"
+        Me.Number_ID8.Size = New System.Drawing.Size(76, 20)
+        Me.Number_ID8.TabIndex = 21
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(6, 18)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(44, 13)
+        Me.Label11.TabIndex = 20
+        Me.Label11.Text = "Number"
         '
         'GroupBoxB
         '
@@ -1413,128 +1503,6 @@ Partial Class Form1
         Me.Label19.Size = New System.Drawing.Size(44, 13)
         Me.Label19.TabIndex = 2
         Me.Label19.Text = "Number"
-        '
-        'GroupBox8
-        '
-        Me.GroupBox8.Controls.Add(Me.DataGridView2_ID8)
-        Me.GroupBox8.Controls.Add(Me.DataGridView1_ID8)
-        Me.GroupBox8.Controls.Add(Me.Number_ID8)
-        Me.GroupBox8.Controls.Add(Me.Label11)
-        Me.GroupBox8.Location = New System.Drawing.Point(81, 6)
-        Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(405, 301)
-        Me.GroupBox8.TabIndex = 86
-        Me.GroupBox8.TabStop = False
-        Me.GroupBox8.Text = "Command ID 0x08"
-        '
-        'DataGridView2_ID8
-        '
-        Me.DataGridView2_ID8.AllowUserToAddRows = False
-        Me.DataGridView2_ID8.AllowUserToDeleteRows = False
-        Me.DataGridView2_ID8.AllowUserToResizeColumns = False
-        Me.DataGridView2_ID8.AllowUserToResizeRows = False
-        Me.DataGridView2_ID8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2_ID8.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26})
-        Me.DataGridView2_ID8.EnableHeadersVisualStyles = False
-        Me.DataGridView2_ID8.Location = New System.Drawing.Point(9, 146)
-        Me.DataGridView2_ID8.MultiSelect = False
-        Me.DataGridView2_ID8.Name = "DataGridView2_ID8"
-        Me.DataGridView2_ID8.RowHeadersVisible = False
-        Me.DataGridView2_ID8.RowHeadersWidth = 20
-        Me.DataGridView2_ID8.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.DataGridView2_ID8.Size = New System.Drawing.Size(390, 86)
-        Me.DataGridView2_ID8.TabIndex = 23
-        '
-        'DataGridViewTextBoxColumn23
-        '
-        Me.DataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn23.HeaderText = "Param5"
-        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
-        Me.DataGridViewTextBoxColumn23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'DataGridViewTextBoxColumn24
-        '
-        Me.DataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn24.HeaderText = "Param6"
-        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
-        Me.DataGridViewTextBoxColumn24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'DataGridViewTextBoxColumn25
-        '
-        Me.DataGridViewTextBoxColumn25.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn25.HeaderText = "Param7"
-        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
-        Me.DataGridViewTextBoxColumn25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'DataGridViewTextBoxColumn26
-        '
-        Me.DataGridViewTextBoxColumn26.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn26.HeaderText = "Param8"
-        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
-        Me.DataGridViewTextBoxColumn26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'DataGridView1_ID8
-        '
-        Me.DataGridView1_ID8.AllowUserToAddRows = False
-        Me.DataGridView1_ID8.AllowUserToDeleteRows = False
-        Me.DataGridView1_ID8.AllowUserToResizeColumns = False
-        Me.DataGridView1_ID8.AllowUserToResizeRows = False
-        Me.DataGridView1_ID8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1_ID8.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17})
-        Me.DataGridView1_ID8.EnableHeadersVisualStyles = False
-        Me.DataGridView1_ID8.Location = New System.Drawing.Point(9, 45)
-        Me.DataGridView1_ID8.MultiSelect = False
-        Me.DataGridView1_ID8.Name = "DataGridView1_ID8"
-        Me.DataGridView1_ID8.RowHeadersVisible = False
-        Me.DataGridView1_ID8.RowHeadersWidth = 20
-        Me.DataGridView1_ID8.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.DataGridView1_ID8.Size = New System.Drawing.Size(390, 86)
-        Me.DataGridView1_ID8.TabIndex = 22
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn14.HeaderText = "Param1"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        Me.DataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'DataGridViewTextBoxColumn15
-        '
-        Me.DataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn15.HeaderText = "Param2"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        Me.DataGridViewTextBoxColumn15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'DataGridViewTextBoxColumn16
-        '
-        Me.DataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn16.HeaderText = "Param3"
-        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        Me.DataGridViewTextBoxColumn16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'DataGridViewTextBoxColumn17
-        '
-        Me.DataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn17.HeaderText = "Param4"
-        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-        Me.DataGridViewTextBoxColumn17.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'Number_ID8
-        '
-        Me.Number_ID8.Location = New System.Drawing.Point(50, 16)
-        Me.Number_ID8.Maximum = New Decimal(New Integer() {3, 0, 0, 0})
-        Me.Number_ID8.Name = "Number_ID8"
-        Me.Number_ID8.Size = New System.Drawing.Size(76, 20)
-        Me.Number_ID8.TabIndex = 21
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(6, 18)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(44, 13)
-        Me.Label11.TabIndex = 20
-        Me.Label11.Text = "Number"
         '
         'GroupBox2
         '
@@ -3060,12 +3028,17 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "PS2 CONFIG editor v2.3"
+        Me.Text = "PS2 CONFIG editor v2.4"
         Me.TabControl1.ResumeLayout(False)
         Me.Tab_Simple.ResumeLayout(False)
         Me.Tab_Simple.PerformLayout()
         Me.Tab_Advanced.ResumeLayout(False)
         Me.Tab_Advanced.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
+        CType(Me.DataGridView2_ID8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1_ID8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Number_ID8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxB.ResumeLayout(False)
         Me.GroupBoxB.PerformLayout()
         CType(Me.DataGridView_IDB, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3107,11 +3080,6 @@ Partial Class Form1
         Me.GroupBoxA.PerformLayout()
         CType(Me.DataGridView_IDA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Number_IDA, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox8.PerformLayout()
-        CType(Me.DataGridView2_ID8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1_ID8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Number_ID8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox23.ResumeLayout(False)
@@ -3284,15 +3252,7 @@ Partial Class Form1
     Friend WithEvents Label26 As System.Windows.Forms.Label
     Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
     Friend WithEvents DataGridView2_ID8 As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn23 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn24 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn25 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn26 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridView1_ID8 As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn15 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn16 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Number_ID8 As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents GroupBox13 As System.Windows.Forms.GroupBox
@@ -3513,4 +3473,8 @@ Partial Class Form1
     Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents BIG_ENDIAN_ID0B As System.Windows.Forms.CheckBox
+    Friend WithEvents DataGridViewTextBoxColumn23 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn24 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
